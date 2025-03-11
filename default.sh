@@ -1,10 +1,12 @@
-# This file will be sourced in default.sh
 
-# https://github.com/kingaigfcash/aigfcash-runpod-template
+# https://github.com/jmacm0/AI-Girl-Runpod-Template.git
 
 # Packages are installed after nodes
 
-DEFAULT_WORKFLOW="https://raw.githubusercontent.com/kingaigfcash/aigfcash-runpod-template/refs/heads/main/workflows/default_workflow.json"
+GITHUB_TOKEN="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"
+
+DEFAULT_WORKFLOW="https://$GITHUB_TOKEN@raw.githubusercontent.com/jmacm0/AI-Girl-Runpod-Template/main/workflows/default_workflow.json"
+
 
 APT_PACKAGES=(
     #"package-1"
@@ -28,50 +30,43 @@ NODES=(
 	"https://github.com/hylarucoder/comfyui-copilot"
 	"https://github.com/kijai/ComfyUI-KJNodes"
 	"https://github.com/KoreTeknology/ComfyUI-Universal-Styler"
-	"https://github.com/LarryJane491/Lora-Training-in-Comfy"
-	"https://github.com/LarryJane491/Image-Captioning-in-ComfyUI"
-	"https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
-	"https://github.com/mpiquero1111/ComfyUI-SaveImgPrompt"
-	"https://github.com/Limitex/ComfyUI-Diffusers.git"
-	"https://github.com/huanngzh/ComfyUI-MVAdapter"
-	"https://github.com/chrisgoringe/cg-use-everywhere"
-	"https://github.com/cubiq/ComfyUI_IPAdapter_plus"
-	"https://github.com/PowerHouseMan/ComfyUI-AdvancedLivePortrait"
-	"https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
-	"https://github.com/rgthree/rgthree-comfy"
-	"https://github.com/WASasquatch/was-node-suite-comfyui"
-	"https://github.com/yolain/ComfyUI-Easy-Use"
-	"https://github.com/kijai/ComfyUI-Florence2"
-	"https://github.com/kijai/ComfyUI-IC-Light"
-	"https://github.com/lldacing/ComfyUI_BiRefNet_ll"
-	"https://github.com/jakechai/ComfyUI-JakeUpgrade"
-	"https://github.com/spacepxl/ComfyUI-Image-Filters"
-	"https://github.com/liusida/ComfyUI-AutoCropFaces"
-	"https://github.com/un-seen/comfyui-tensorops"
-	"https://github.com/Vaibhavs10/ComfyUI-DDUF"
-	"https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
-	"https://github.com/lldacing/ComfyUI_PuLID_Flux_ll"
-	"https://github.com/sipie800/ComfyUI-PuLID-Flux-Enhanced"
-	"https://github.com/Fannovel16/comfyui_controlnet_aux"
-	"https://github.com/cubiq/PuLID_ComfyUI"
-	"https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet"
-	"https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
-	"https://github.com/city96/ComfyUI-GGUF"
+    "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+    "https://github.com/mpiquero1111/ComfyUI-SaveImgPrompt"
     "https://github.com/melMass/comfy_mtb"
+    "https://github.com/rgthree/rgthree-comfy"
+    "https://github.com/ssitu/ComfyUI_UltimateSDUpscale"
+    "https://github.com/if-ai/ComfyUI_IF_AI_LoadImages"
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    "https://github.com/shiimizu/ComfyUI-TiledDiffusion"
+    "https://github.com/BadCafeCode/masquerade-nodes-comfyui"
+    "https://github.com/city96/ComfyUI_ExtraModels"
+    "https://github.com/city96/ComfyUI-GGUF"
+    "https://github.com/Ryuukeisyou/comfyui_face_parsing"
+    "https://github.com/chflame163/ComfyUI_LayerStyle"
+    "https://github.com/chflame163/ComfyUI_LayerStyle_Advance"
+    "https://github.com/cubiq/ComfyUI_FaceAnalysis"
+    "https://github.com/chrisgoringe/cg-use-everywhere"
+    "https://github.com/jakechai/ComfyUI-JakeUpgrade"
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
 )
 
 WORKFLOWS=(
-	"https://github.com/kingaigfcash/aigfcash-runpod-template.git"
+    "https://${GITHUB_TOKEN}@github.com/jmacm0/AI-Girl-Runpod-Template.git"
 )
+
 
 # Initialize empty arrays for models
 CHECKPOINT_MODELS=(
     "https://huggingface.co/RunDiffusion/Juggernaut-XI-v11/resolve/main/Juggernaut-XI-byRunDiffusion.safetensors"
     "https://huggingface.co/TheImposterImposters/URPM-v2.3Final/resolve/main/uberRealisticPornMerge_v23Final.safetensors"
+    "https://huggingface.co/AiWise/epiCRealism-XL-vXI-aBEAST/resolve/5c3950c035ce565d0358b76805de5ef2c74be919/epicrealismXL_vxiAbeast.safetensors"
 )
 UNET_MODELS=()
 VAE_MODELS=()
-CLIP_MODELS=()
+
+CLIP_MODELS=(
+)
+
 LORA_MODELS=()
 CONTROLNET_MODELS=()
 ESRGAN_MODELS=()
@@ -100,7 +95,6 @@ function provisioning_start() {
     fi
     source /opt/ai-dock/etc/environment.sh
     source /opt/ai-dock/bin/venv-set.sh comfyui
-    source "$(dirname "$0")/download_models.sh"
 
     provisioning_print_header
     provisioning_get_apt_packages
@@ -113,11 +107,6 @@ function provisioning_start() {
     mkdir -p "${WORKSPACE}/ComfyUI/models/ultralytics/segm"
     mkdir -p "${WORKSPACE}/ComfyUI/models/sams"
     mkdir -p "${WORKSPACE}/ComfyUI/models/insightface"
-
-    # Sync initial input from ComfyUI to workspace and remove original
-    rsync -av /ComfyUI/input/ /workspace/input/
-    rm -rf /ComfyUI/input
-    ln -sf /workspace/input /ComfyUI/input
 
     # Download models to appropriate directories
     provisioning_get_models \
