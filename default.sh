@@ -3,9 +3,9 @@
 
 # Packages are installed after nodes
 
-GITHUB_TOKEN="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"
 
-DEFAULT_WORKFLOW="https://$GITHUB_TOKEN@raw.githubusercontent.com/jmacm0/AI-Girl-Runpod-Template/main/workflows/default_workflow.json"
+
+DEFAULT_WORKFLOW="https://raw.githubusercontent.com/jmacm0/AI-Girl-Runpod-Template/main/workflows/default_workflow.json"
 
 
 APT_PACKAGES=(
