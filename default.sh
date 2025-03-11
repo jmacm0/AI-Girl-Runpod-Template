@@ -51,7 +51,7 @@ NODES=(
 )
 
 WORKFLOWS=(
-    "https://${GITHUB_TOKEN}@github.com/jmacm0/AI-Girl-Runpod-Template.git"
+    "https://github.com/jmacm0/AI-Girl-Runpod-Template.git"
 )
 
 
