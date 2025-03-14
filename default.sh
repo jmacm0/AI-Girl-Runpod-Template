@@ -48,7 +48,9 @@ NODES=(
     "https://github.com/chrisgoringe/cg-use-everywhere"
     "https://github.com/jakechai/ComfyUI-JakeUpgrade"
     "https://github.com/cubiq/ComfyUI_IPAdapter_plus"
+
 )
+
 
 WORKFLOWS=(
     "https://github.com/jmacm0/AI-Girl-Runpod-Template.git"
@@ -60,6 +62,7 @@ CHECKPOINT_MODELS=(
     "https://huggingface.co/RunDiffusion/Juggernaut-XI-v11/resolve/main/Juggernaut-XI-byRunDiffusion.safetensors"
     "https://huggingface.co/TheImposterImposters/URPM-v2.3Final/resolve/main/uberRealisticPornMerge_v23Final.safetensors"
     "https://huggingface.co/AiWise/epiCRealism-XL-vXI-aBEAST/resolve/5c3950c035ce565d0358b76805de5ef2c74be919/epicrealismXL_vxiAbeast.safetensors"
+    "https://civitai.com/api/download/models/919063?token=3acdfc9715cdb424e1474dea73e648f6"
 )
 UNET_MODELS=()
 VAE_MODELS=()
